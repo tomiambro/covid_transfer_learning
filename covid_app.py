@@ -4,8 +4,6 @@ import os
 from pathlib import Path
 import streamlit as st
 
-os.system("sudo apt-get install wget")
-
 class Predict:
     def __init__(self, filename):
         self.learn_inference = load_learner(Path()/filename)
@@ -37,10 +35,12 @@ if __name__=='__main__':
     path = Path('export.pkl')
     if not path.is_file():
         print('Downloading...')
-        os.system('wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate "https://docs.google.com/uc?export=download&id=151TwzuC8exmzntoh-iQDXPJT71A1CcGU" -O- | sed -rn "s/.*confirm=([0-9A-Za-z_]+).*/\1\n/p")&id=151TwzuC8exmzntoh-iQDXPJT71A1CcGU" -O export.pkl && rm -rf /tmp/cookies.txt')
+        url = 'wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate "https://docs.google.com/uc?export=download&id=151TwzuC8exmzntoh-iQDXPJT71A1CcGU" -O- | sed -rn "s/.*confirm=([0-9A-Za-z_]+).*/\1\n/p")&id=151TwzuC8exmzntoh-iQDXPJT71A1CcGU" -O export.pkl && rm -rf /tmp/cookies.txt'
+        os.system(url)
         os.system("ls -la")
     
-    file_name='export.pkl'
-
-    predictor = Predict(file_name)
+    path = Path('export.pkl')
+    if path.is_file():
+        file_name='export.pkl'
+        predictor = Predict(file_name)
 
