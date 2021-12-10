@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 import streamlit as st
 
+os.system("sudo apt-get install wget")
 
 class Predict:
     def __init__(self, filename):
