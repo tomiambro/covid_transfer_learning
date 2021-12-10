@@ -1,8 +1,7 @@
 from fastai.vision.widgets import *
 from fastai.vision.all import *
-
+import os
 from pathlib import Path
-
 import streamlit as st
 
 class Predict:
@@ -32,7 +31,11 @@ class Predict:
             st.write(f'Click the button to classify') 
 
 if __name__=='__main__':
-
-    file_name='dog.pkl'
+    
+    path = Path('export.pkl')
+    if not path.is_file()
+        os.system('wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=151TwzuC8exmzntoh-iQDXPJT71A1CcGU' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=151TwzuC8exmzntoh-iQDXPJT71A1CcGU" -O export.pkl && rm -rf /tmp/cookies.txt')
+    
+    file_name='export.pkl'
 
     predictor = Predict(file_name)
