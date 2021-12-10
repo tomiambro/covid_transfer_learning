@@ -4,6 +4,7 @@ import os
 from pathlib import Path
 import streamlit as st
 
+
 class Predict:
     def __init__(self, filename):
         self.learn_inference = load_learner(Path()/filename)
@@ -34,8 +35,11 @@ if __name__=='__main__':
     
     path = Path('export.pkl')
     if not path.is_file():
-        os.system("wget --load-cookies /tmp/cookies.txt 'https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate 'https://docs.google.com/uc?export=download&id=151TwzuC8exmzntoh-iQDXPJT71A1CcGU' -O- | sed -rn 's/.*confirm=([0-9A-Za-z_]+).*/\1\n/p')&id=151TwzuC8exmzntoh-iQDXPJT71A1CcGU' -O export.pkl && rm -rf /tmp/cookies.txt")
+        print('Downloading...')
+        os.system('wget --load-cookies /tmp/cookies.txt "https://docs.google.com/uc?export=download&confirm=$(wget --quiet --save-cookies /tmp/cookies.txt --keep-session-cookies --no-check-certificate "https://docs.google.com/uc?export=download&id=151TwzuC8exmzntoh-iQDXPJT71A1CcGU" -O- | sed -rn "s/.*confirm=([0-9A-Za-z_]+).*/\1\n/p")&id=151TwzuC8exmzntoh-iQDXPJT71A1CcGU" -O export.pkl && rm -rf /tmp/cookies.txt')
+        os.system("ls -la")
     
     file_name='export.pkl'
 
     predictor = Predict(file_name)
+
