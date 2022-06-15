@@ -33,6 +33,7 @@ class Predictor:
 
 if __name__=='__main__':
     st.write("# Covid detection from CT Scans")
+    st.write("**Disclaimer!** This is just a proof of concept. It is not, by any means, a medical diagnosis and should not be relied upon without consulting a medic or health specialist.")
     st.write("### How precise is it?")
     st.write("Here is the confusion matrix of the test set results:")
     st.image('cm.png', caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto")
